@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class BoardService {
 
     private final BoardMapper boardMapper;
@@ -21,5 +21,21 @@ public class BoardService {
 
     public List<BoardVO> getBoardList() {
         return boardMapper.getBoardList();
+    }
+
+    public BoardVO getBoardByBoardId(int boardId) {
+        return boardMapper.getBoardByBoardId(boardId);
+    }
+
+    public void uploadBoard(BoardVO boardVO) {
+        boardMapper.uploadBoard(boardVO);
+    }
+
+    public void updateBoard(BoardVO boardVO) {
+        boardMapper.updateBoard(boardVO);
+    }
+
+    public void deleteBoard(int boardId) {
+        boardMapper.deleteBoard(boardId);
     }
 }

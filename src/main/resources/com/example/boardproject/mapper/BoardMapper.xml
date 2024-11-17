@@ -10,4 +10,23 @@
     <select id="getBoardList" resultType="com.example.boardproject.domain.BoardVO">
         select * from tbl_board;
     </select>
+
+    <select id="getBoardByBoardId" parameterType="int" resultType="com.example.boardproject.domain.BoardVO">
+        select * from tbl_board where boardId = #{boardId};
+    </select>
+
+    <insert id="uploadBoard" parameterType="com.example.boardproject.domain.BoardVO">
+        insert into tbl_board (title, content, name)
+        values (#{title}, #{content}, #{name});
+    </insert>
+
+    <update id="updateBoard" parameterType="com.example.boardproject.domain.BoardVO">
+        update tbl_board
+        set title=#{title}, content=#{content}
+        where boardId=#{boardId};
+    </update>
+
+    <delete id="deleteBoard" parameterType="int">
+        delete from tbl_board where boardId=#{boardId};
+    </delete>
 </mapper>
